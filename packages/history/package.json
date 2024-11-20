@@ -5,6 +5,10 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "format": "biome format --write ./src"
+    "format": "biome format --write ./src",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "2.1.5"
   }
 }
