@@ -1,0 +1,10 @@
+{
+  "name": "@router-example/history",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "format": "biome format --write ./src"
+  }
+}

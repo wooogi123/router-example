@@ -1,0 +1,13 @@
+{
+  "name": "router-example",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "dependencies": {
+    "@biomejs/biome": "1.9.4"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3"
+  }
+}
