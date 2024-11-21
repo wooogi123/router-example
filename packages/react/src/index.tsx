@@ -1,7 +1,3 @@
-import {
-  createMemoryHistory,
-  createBrowserHistory,
-} from '@router-example/history';
 import { createContext, useContext, useRef, useSyncExternalStore } from 'react';
 
 import type { History, To } from '@router-example/history';
@@ -28,50 +24,11 @@ export interface Route {
 
 interface RouterProps {
   routes: Route[];
+  history: History;
 }
 
-export const MemoryRouter = ({
-  routes,
-  initialIndex,
-  initialStack,
-}: RouterProps & Parameters<typeof createMemoryHistory>[0]) => {
-  const history = useRef<History | null>(null);
-
-  if (history.current === null) {
-    history.current = createMemoryHistory({
-      initialIndex,
-      initialStack,
-    });
-  }
-
-  const currentLocation = useSyncExternalStore(
-    history.current!.addListener,
-    () => history.current!.location,
-    () => history.current!.location,
-  );
-
-  const render = routes.find(
-    (route) => route.path === currentLocation,
-  )?.Component;
-
-  return (
-    <HistoryContext.Provider value={history.current}>
-      {render?.() ?? null}
-    </HistoryContext.Provider>
-  );
-};
-
-// ---
-
-export const BrowserRouter = ({
-  routes,
-  window,
-}: RouterProps & Parameters<typeof createBrowserHistory>[0]) => {
-  const history = useRef<History | null>(null);
-
-  if (history.current === null) {
-    history.current = createBrowserHistory({ window });
-  }
+export const Router = ({ routes, history: _history }: RouterProps) => {
+  const history = useRef<History>(_history);
 
   const currentLocation = useSyncExternalStore(
     history.current!.addListener,

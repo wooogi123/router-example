@@ -8,18 +8,17 @@
     "format": "biome format --write ./src",
     "test": "vitest"
   },
-  "dependencies": {
-    "@router-example/history": "workspace:*"
-  },
   "devDependencies": {
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.0.1",
     "@types/react": "18.3.12",
+    "@router-example/history": "workspace:*",
     "happy-dom": "15.11.6",
     "react": "18.3.1",
     "vitest": "2.1.5"
   },
   "peerDependencies": {
-    "react": "18.3.1"
+    "react": "18.3.1",
+    "@router-example/history": "workspace:*"
   }
 }

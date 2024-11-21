@@ -69,11 +69,10 @@ importers:
         version: 2.1.5(happy-dom@15.11.6)
 
   packages/react:
-    dependencies:
+    devDependencies:
       '@router-example/history':
         specifier: workspace:*
         version: link:../history
-    devDependencies:
       '@testing-library/dom':
         specifier: 10.4.0
         version: 10.4.0

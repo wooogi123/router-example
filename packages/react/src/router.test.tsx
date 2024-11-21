@@ -3,10 +3,10 @@
  */
 
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import { Window } from 'happy-dom';
-import { afterEach, beforeEach, expect, it } from 'vitest';
+import { afterEach, expect, it } from 'vitest';
+import { createMemoryHistory } from '@router-example/history';
 
-import { BrowserRouter, Link } from './index.tsx';
+import { Router, Link } from './index.tsx';
 
 import type { Route } from './index.tsx';
 
@@ -60,30 +60,36 @@ const testRoutes: Route[] = [
   },
 ];
 
-let window: Window;
-
-beforeEach(() => {
-  window = new Window({
-    url: 'https://example.com',
-  });
-  window.history.replaceState({}, '', '/');
-});
-
 afterEach(() => {
   cleanup();
 });
 
 it('component successfully rendered', () => {
-  render(<BrowserRouter routes={testRoutes} />);
+  render(<Router routes={testRoutes} history={createMemoryHistory()} />);
 
   expect(screen.getByTestId('index')).toBeTruthy();
 });
 
+it('component render with history options', () => {
+  render(
+    <Router
+      routes={testRoutes}
+      history={createMemoryHistory({
+        initialStack: ['/', '/home', '/about'],
+        initialIndex: 1,
+      })}
+    />,
+  );
+
+  expect(screen.getByTestId('home')).toBeTruthy();
+});
+
 it('navigation change render content', () => {
-  render(<BrowserRouter routes={testRoutes} />);
+  render(<Router routes={testRoutes} history={createMemoryHistory()} />);
 
   expect(screen.getByTestId('index')).toBeTruthy();
 
   fireEvent.click(screen.getByTestId('home-anchor'));
+
   expect(screen.getByTestId('home')).toBeTruthy();
 });
