@@ -18,6 +18,9 @@ importers:
 
   examples/react:
     dependencies:
+      '@router-example/history':
+        specifier: workspace:*
+        version: link:../../packages/history
       '@router-example/react':
         specifier: workspace:*
         version: link:../../packages/react
