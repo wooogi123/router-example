@@ -1,0 +1,23 @@
+{
+  "name": "@router-example/vue",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "format": "biome format --write ./src",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@router-example/history": "workspace:*",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/vue": "8.1.0",
+    "happy-dom": "15.11.6",
+    "vitest": "2.1.5",
+    "vue": "3.5.13"
+  },
+  "peerDependencies": {
+    "@router-example/history": "workspace:*",
+    "vue": "3.5.13"
+  }
+}
