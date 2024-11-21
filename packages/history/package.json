@@ -9,6 +9,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "happy-dom": "15.11.6",
     "vitest": "2.1.5"
   }
 }
