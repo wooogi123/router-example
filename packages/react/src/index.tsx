@@ -5,7 +5,7 @@ import type { ReactNode, MouseEventHandler, HTMLAttributes } from 'react';
 
 const HistoryContext = createContext<History | null>(null);
 
-const useHistory = () => {
+export const useHistory = () => {
   const context = useContext(HistoryContext);
 
   if (context === null) {

@@ -1,6 +1,7 @@
 {
   "name": "@router-example/react",
   "type": "module",
+  "main": "./src/index.tsx",
   "exports": {
     ".": "./src/index.tsx"
   },
